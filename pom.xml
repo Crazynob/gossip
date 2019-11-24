@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>red.fuyun</groupId>
+    <artifactId>gossip</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <properties>
+        <mysql.version>8.0.18</mysql.version>
+        <lombok.version>1.18.10</lombok.version>
+    </properties>
+
+    <modules>
+        <module>chat</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+<!--            web-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>2.2.1.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>2.2.1.RELEASE</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+<!--            mongodb-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>2.2.1.RELEASE</version>
+            </dependency>
+
+<!--            redis-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>2.2.1.RELEASE</version>
+            </dependency>
+
+<!--            jdbc-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jdbc</artifactId>
+                <version>2.2.1.RELEASE</version>
+            </dependency>
+
+            <!-- lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+<!--            mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>protobuf-java</artifactId>
+                        <groupId>com.google.protobuf</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--socketio-->
+            <dependency>
+                <groupId>com.corundumstudio.socketio</groupId>
+                <artifactId>netty-socketio</artifactId>
+                <version>1.7.11</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+<!--    <build>-->
+<!--    <resources>-->
+<!--        <resource>-->
+<!--            <filtering>true</filtering>-->
+<!--            <directory>${basedir}/src/main/resources</directory>-->
+<!--            <includes>-->
+<!--                <include>**/application*.yml</include>-->
+<!--                <include>**/application*.yaml</include>-->
+<!--                <include>**/application*.properties</include>-->
+<!--            </includes>-->
+<!--        </resource>-->
+<!--        <resource>-->
+<!--            <directory>${basedir}/src/main/resources</directory>-->
+<!--            <excludes>-->
+<!--                <exclude>**/application*.yml</exclude>-->
+<!--                <exclude>**/application*.yaml</exclude>-->
+<!--                <exclude>**/application*.properties</exclude>-->
+<!--            </excludes>-->
+<!--        </resource>-->
+<!--    </resources>-->
+<!--    </build>-->
+</project>
