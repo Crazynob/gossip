@@ -8,6 +8,8 @@ class ChatApplicationTests {
 
     @Test
     void contextLoads() {
+
+        System.out.println(System.currentTimeMillis());
     }
 
 }
