@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  */
-package red.fuyun.chat.constant;
+package red.fuyun.chat.enums;
 
 /**
  * 〈传输类型〉

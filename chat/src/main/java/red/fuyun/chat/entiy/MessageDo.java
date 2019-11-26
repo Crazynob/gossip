@@ -10,8 +10,8 @@
  */
 package red.fuyun.chat.entiy;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import red.fuyun.chat.constant.MIME;
 
 /**
  * 〈传输消息的实体类〉
@@ -20,9 +20,26 @@ import red.fuyun.chat.constant.MIME;
  * @date 2019/11/25
  * @since 1.0.0
  */
+@AllArgsConstructor
 @Data
-public class MessageDto {
+public class MessageDo {
+    /**
+     *信息归属谁 true自己
+     */
+    private boolean me;
+
+    /**
+     *信息的类型
+     */
     private int mime;
+
+    /**
+     *信息内容
+     */
     private String message;
+
+    /**
+     *发送信息的时间
+     */
     private Long time;
 }

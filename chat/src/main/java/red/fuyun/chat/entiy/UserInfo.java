@@ -1,9 +1,11 @@
 package red.fuyun.chat.entiy;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ *用户信息
+ */
 @Data
 @NoArgsConstructor
 public class UserInfo {

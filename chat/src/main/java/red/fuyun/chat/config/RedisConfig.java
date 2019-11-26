@@ -10,15 +10,13 @@
  */
 package red.fuyun.chat.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import red.fuyun.chat.entiy.MessageDto;
+import red.fuyun.chat.entiy.MessageDo;
 
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
@@ -37,11 +35,11 @@ public class RedisConfig {
      * 配置对象写入到redis中的序列化规则
      */
     @Bean
-    public RedisTemplate<String, MessageDto> messageRedisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
-        RedisTemplate<String, MessageDto> template = new RedisTemplate();
+    public RedisTemplate<String, MessageDo> messageRedisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+        RedisTemplate<String, MessageDo> template = new RedisTemplate();
         template.setConnectionFactory(redisConnectionFactory);
         template.setKeySerializer(new StringRedisSerializer(StandardCharsets.UTF_8));
-        template.setValueSerializer(new Jackson2JsonRedisSerializer(MessageDto.class));
+        template.setValueSerializer(new Jackson2JsonRedisSerializer(MessageDo.class));
         return template;
     }
 
